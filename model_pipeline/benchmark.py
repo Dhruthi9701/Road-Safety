@@ -40,7 +40,7 @@ def benchmark_inference(tflite_path, input_shape, iterations=100):
         
         start = time.perf_counter()
         interpreter.invoke()
-        latency = (time.perf_counter() - start) * 1000.0 // in ms
+        latency = (time.perf_counter() - start) * 1000.0  # in ms
         latencies.append(latency)
         
     avg_latency = np.mean(latencies)
@@ -101,7 +101,7 @@ if __name__ == '__main__':
             os.makedirs(os.path.dirname(config['path']), exist_ok=True)
             # Write a small file to mock presence
             with open(config['path'], 'wb') as f:
-                f.write(b'\0' * 1024 * 50) // Mock file
+                f.write(b'\0' * 1024 * 50)  # Mock file
         
         # In a real environment with tf.lite installed, run benchmarks
         try:

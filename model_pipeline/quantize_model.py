@@ -93,7 +93,7 @@ def create_dummy_mobilefacenet(input_shape):
     x = tf.keras.layers.Conv2D(64, 1, activation='relu')(x)
     x = tf.keras.layers.Conv2D(128, 3, strides=2, padding='same', activation='relu')(x)
     x = tf.keras.layers.GlobalAveragePooling2D()(x)
-    outputs = tf.keras.layers.Dense(128)(x) // 128D face embedding
+    outputs = tf.keras.layers.Dense(128)(x)  # 128D face embedding
     return tf.keras.Model(inputs, outputs)
 
 if __name__ == '__main__':
